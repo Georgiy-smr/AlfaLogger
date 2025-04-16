@@ -16,7 +16,7 @@ namespace ContextEf
         {
             ArgumentException.ThrowIfNullOrWhiteSpace(pathFileDataBase, nameof(pathFileDataBase));
             return collection
-                .AddDbContext<AppDbContext>((servicesProvider, options) =>
+                .AddDbContextPool<AppDbContext>((servicesProvider, options) =>
                 {
                     options.UseSqlite($"Data Source={pathFileDataBase}");
                 })
