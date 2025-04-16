@@ -1,6 +1,9 @@
+using System.Security.Cryptography;
 using AlfaLoggerLib.Extension;
 using AlfaLoggerLib.Logging;
 using AlfaLoggerLib.Logging.Events;
+using ContextEf;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace AlfaLoggerTests
@@ -18,5 +21,8 @@ namespace AlfaLoggerTests
             var result = await init.InitializeAsync();
             Assert.True(result);
         }
+
+
+      
     }
 }

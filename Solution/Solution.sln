@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContextEf", "ContextEf\ContextEf.csproj", "{753AC8D4-1609-4830-916C-3FDC2A2EE8F3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataBaseTests", "DataBaseTests\DataBaseTests.csproj", "{D3A5220B-7F2F-4888-96C1-CA3C363E385E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,10 @@ Global
 		{753AC8D4-1609-4830-916C-3FDC2A2EE8F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{753AC8D4-1609-4830-916C-3FDC2A2EE8F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{753AC8D4-1609-4830-916C-3FDC2A2EE8F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3A5220B-7F2F-4888-96C1-CA3C363E385E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3A5220B-7F2F-4888-96C1-CA3C363E385E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3A5220B-7F2F-4888-96C1-CA3C363E385E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3A5220B-7F2F-4888-96C1-CA3C363E385E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -46,6 +52,7 @@ Global
 		{0A2B1193-0073-4DC0-9EBE-DC23B1BC50F0} = {88992813-A383-4637-ACCB-0E47079742EA}
 		{B53C2B9C-DEAF-4646-9A3B-1720682535C1} = {26C05AEA-1262-489A-B13B-BCBD5EE15524}
 		{753AC8D4-1609-4830-916C-3FDC2A2EE8F3} = {26C05AEA-1262-489A-B13B-BCBD5EE15524}
+		{D3A5220B-7F2F-4888-96C1-CA3C363E385E} = {88992813-A383-4637-ACCB-0E47079742EA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {04F2BB25-3A83-4F0B-A694-2017942621BA}
