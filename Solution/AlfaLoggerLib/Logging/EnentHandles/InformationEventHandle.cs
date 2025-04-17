@@ -30,12 +30,12 @@ internal class InformationEventHandle : INotificationHandler<InformationEvent>
                 TypeEvent = TypeEvent.Information,
                 Message = notification.InformationMessage
             }, cancellationToken).ConfigureAwait(false);
-
             await _context.SaveChangesAsync(cancellationToken);
         }
         catch (Exception e)
         {
-            _logger.LogError("{1} {2}",
+            _logger.LogError("{1} {2} {3}",
+                nameof(InformationEventHandle),
                 e,
                 e.Message);
         }
