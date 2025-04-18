@@ -11,7 +11,7 @@ namespace Repository.Commands;
 internal abstract record RepositoryCommand<T>() where T : Entity, new()
 {
     public required IEnumerable<Expression<Func<T, bool>>>? Filters { get; init; } 
-    public IEnumerable<Expression<Func<T, object>>>? Includes { get; init; }
+    public required IEnumerable<Expression<Func<T, object>>>? Includes { get; init; }
 }
 
 internal record GetEventsCommand() : 

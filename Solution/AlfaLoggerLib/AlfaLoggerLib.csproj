@@ -8,6 +8,8 @@
     <PackageReadmeFile>Descriptions.md</PackageReadmeFile>
     <PackageIcon>icon-ap.png</PackageIcon>
     <RepositoryUrl>https://github.com/Georgiy-smr/AlfaLogger.git</RepositoryUrl>
+    <AssemblyVersion>1.0.0.1</AssemblyVersion>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
