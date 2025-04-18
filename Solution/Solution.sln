@@ -17,7 +17,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ContextEf", "ContextEf\Cont
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataBaseTests", "DataBaseTests\DataBaseTests.csproj", "{D3A5220B-7F2F-4888-96C1-CA3C363E385E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repository", "Repository\Repository.csproj", "{0DFA4970-2793-4C1C-A845-D3E226B8AFDE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlfaLogger.Repository", "Repository\AlfaLogger.Repository.csproj", "{0DFA4970-2793-4C1C-A845-D3E226B8AFDE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RepositoryTests", "RepositoryTests\RepositoryTests.csproj", "{B900902E-2506-488A-B9EC-8C3333AB44F4}"
 EndProject

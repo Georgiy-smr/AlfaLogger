@@ -16,7 +16,7 @@
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
-    <None Include="..\AlfaLoggerLib\bin\Release\net8.0-windows\Descriptions.md">
+    <None Include="bin\Release\net8.0\Descriptions.md">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>

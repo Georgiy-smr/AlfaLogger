@@ -33,7 +33,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ContextEf\ContextEf.csproj" />
-    <ProjectReference Include="..\Repository\Repository.csproj" />
+    <ProjectReference Include="..\Repository\AlfaLogger.Repository.csproj" />
   </ItemGroup>
 
 </Project>
