@@ -1,31 +1,22 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using MediatR;
+using Microsoft.Extensions.DependencyInjection;
 using Repository.Commands;
 using Repository.DtoObjects;
 using StatusGeneric;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace Repository
 {
     public class LogsRepository
     {
-        private readonly IServiceProvider _provider;
-        private readonly DataService _service;
-
-        public LogsRepository(
-            IServiceProvider provider,
-            DataService service
-            )
+        private readonly IMediator _mediator;
+        public LogsRepository(IMediator mediator)
         {
-            _provider = provider;
-            _service = service;
+            _mediator = mediator;
         }
-        public async Task<IStatusGeneric<LoggingEventDto>> Events(CancellationToken token = default)
+        public Task<IStatusGeneric<LoggingEventDto>> Events(CancellationToken token = default)
         {
-            await using var scope = _provider.CreateAsyncScope();
-
-            DataService service = scope.ServiceProvider.GetRequiredService<DataService>();
-
-            var result = await _service.GetAsync(new GetEventsCommand(), token);
-            return result;
+            return _mediator.Send(new GetEventsCommand(), token);
         }
     }
 }

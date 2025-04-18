@@ -18,10 +18,7 @@ namespace Repository
             return collection
                     .AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()))
                     .AddScoped<LogsRepository>()
-                    .AddScoped<DataService>()
-                    .AddScoped<ServiceTestMediator>()
                 ;
         }
-
     }
 }

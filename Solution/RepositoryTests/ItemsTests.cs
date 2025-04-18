@@ -1,31 +1,32 @@
-using System.Security.Cryptography;
 using AlfaLoggerLib.Extension;
 using AlfaLoggerLib.Logging;
-using AlfaLoggerLib.Logging.Events;
-using ContextEf;
-using Data.Entities;
-using DataBaseTests;
-using MediatR;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Repository;
-using Repository.Commands;
 
-namespace AlfaLoggerTests
+namespace RepositoryTests
 {
-    public class InitializeLoggerTests
+    public class ItemsTests
     {
+        
         [Fact]
-        public async void TestInitialize()
+        public async void GetItems()
         {
             ServiceCollection services = new ServiceCollection();
             services.AddAlfaLogger("appDataBase.db");
+            services.AddRepositoryLogs();
             IServiceProvider serviceProvider = services.BuildServiceProvider();
 
             var init = serviceProvider.GetRequiredService<LoggerInitialization>();
-            var result = await init.InitializeAsync();
-            Assert.True(result);
+            if (!await init.InitializeAsync())
+                throw new Exception();
+
+            var repository = serviceProvider.GetRequiredService<LogsRepository>();
+
+
+            var result = await repository.Events();
+
+            Assert.NotNull(result.Result);
+
         }
-     
     }
 }
