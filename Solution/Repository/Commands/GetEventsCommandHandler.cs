@@ -7,7 +7,7 @@ using StatusGeneric;
 
 namespace Repository.Commands;
 
-public class GetEventsCommandHandler :
+internal class GetEventsCommandHandler :
     IRequestHandler<GetEventsCommand, IStatusGeneric<IEnumerable<LoggingEventDto>>>
 {
     private readonly IServiceProvider _provider;

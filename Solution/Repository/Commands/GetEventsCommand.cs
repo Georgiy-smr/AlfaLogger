@@ -5,5 +5,5 @@ using StatusGeneric;
 
 namespace Repository.Commands;
 
-public record GetEventsCommand() : 
+internal record GetEventsCommand() : 
     IRequest<IStatusGeneric<IEnumerable<LoggingEventDto>>>;
