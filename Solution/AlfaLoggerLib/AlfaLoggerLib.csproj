@@ -1,10 +1,25 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net8.0-windows</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <Description>SimpleLogger</Description>
+    <PackageReadmeFile>Descriptions.md</PackageReadmeFile>
+    <PackageIcon>icon-ap.png</PackageIcon>
+    <RepositoryUrl>https://github.com/Georgiy-smr/AlfaLogger.git</RepositoryUrl>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="bin\Release\net8.0-windows\Assets\icon-ap.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="bin\Release\net8.0-windows\Descriptions.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="MediatR" Version="12.5.0" />
