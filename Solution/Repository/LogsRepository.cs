@@ -14,7 +14,7 @@ namespace Repository
         {
             _mediator = mediator;
         }
-        public Task<IStatusGeneric<LoggingEventDto>> Events(CancellationToken token = default)
+        public Task<IStatusGeneric<IEnumerable<LoggingEventDto>>> Events(CancellationToken token = default)
         {
             return _mediator.Send(new GetEventsCommand(), token);
         }
