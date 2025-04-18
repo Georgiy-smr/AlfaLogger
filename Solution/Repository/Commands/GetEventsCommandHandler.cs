@@ -20,15 +20,13 @@ internal class GetEventsCommandHandler :
     public async Task<IStatusGeneric<IEnumerable<LoggingEventDto>>> Handle(
         GetEventsCommand request, CancellationToken cancellationToken)
     {
-
         var status = new StatusGenericHandler<IEnumerable<LoggingEventDto>>();
         IEnumerable<LoggingEventDto> result = null!;
+        await using var scope = _provider.CreateAsyncScope();
         try
         {
-            await using var scope = _provider.CreateAsyncScope();
-            var service = scope.ServiceProvider.GetRequiredService<AppDbContext>();
-
-            var query = service.Logs.AsQueryable();
+            var query = 
+                scope.ServiceProvider.GetRequiredService<AppDbContext>().Logs.AsQueryable();
 
             if (request.Filters is {} filters) 
                 foreach (var filter in filters) 
@@ -51,10 +49,15 @@ internal class GetEventsCommandHandler :
                         eventName = x.EventPublishName,
                         date = x.Date,
                         message = x.Message,
+                        type = x.TypeEvent
                     }).ToListAsync(cancellationToken: cancellationToken);
 
             result = list
-                .Select(x => new LoggingEventDto(x.message));
+                .Select(x => new LoggingEventDto(
+                    x.eventName,
+                    x.message,
+                    x.type,
+                    x.date));
         }
         catch (Exception e)
         {

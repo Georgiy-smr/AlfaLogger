@@ -120,7 +120,6 @@ namespace RepositoryTests
             }
             catch (Exception e)
             {
-
                 await logger.Log(new ExceptionEvent(DateTime.Now, nameof(ItemsTests))
                 {
                     Exception = e,

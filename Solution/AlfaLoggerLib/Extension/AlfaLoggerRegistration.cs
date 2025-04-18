@@ -10,10 +10,11 @@ namespace AlfaLoggerLib.Extension
         public static IServiceCollection AddAlfaLogger(this IServiceCollection collection, string path)
         {
             return collection
-                .RegistrarDataBase(path)
-                .AddSingleton<LoggerInitialization>()
-                .AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()))
-                .AddScoped<IAlfaLogger, AlfaLogger>()
+                    .AddLogging()
+                    .RegistrarDataBase(path)
+                    .AddSingleton<LoggerInitialization>()
+                    .AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()))
+                    .AddScoped<IAlfaLogger, AlfaLogger>()
                ;
         }
 

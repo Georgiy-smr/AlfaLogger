@@ -1,15 +1,6 @@
-using System.Security.Cryptography;
 using AlfaLoggerLib.Extension;
 using AlfaLoggerLib.Logging;
-using AlfaLoggerLib.Logging.Events;
-using ContextEf;
-using Data.Entities;
-using DataBaseTests;
-using MediatR;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using Repository;
-using Repository.Commands;
 
 namespace AlfaLoggerTests
 {
