@@ -2,7 +2,7 @@
 
 namespace AlfaLoggerLib.Logging.Events;
 
-public record ErrorEvent(DateTime TimeEvent, string EventPublishName, string Message) : EventLogging(
+public record ErrorEvent(DateTime TimeEvent, string EventPublishName) : EventLogging(
     TimeEvent, EventPublishName)
 {
     public required string ErrorMessage { get; set; }

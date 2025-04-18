@@ -26,6 +26,5 @@ namespace AlfaLoggerTests
             var result = await init.InitializeAsync();
             Assert.True(result);
         }
-     
     }
 }

@@ -26,9 +26,9 @@ internal class ExceptionEventHandle : INotificationHandler<ExceptionEvent>
             await _context.Logs.AddAsync(new()
             {
                 Date = notification.TimeEvent,
-                EventPublishName = notification.Exception.ToString(),
+                EventPublishName = notification.Exception.GetType().ToString(),
                 TypeEvent = TypeEvent.Critical,
-                Message = notification.Exception.Message,
+                Message = notification.Exception.ToString(),
             }, cancellationToken).ConfigureAwait(false);
             await _context.SaveChangesAsync(cancellationToken);
         }

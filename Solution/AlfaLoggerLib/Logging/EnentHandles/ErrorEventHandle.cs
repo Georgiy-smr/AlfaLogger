@@ -29,7 +29,7 @@ internal class ErrorEventHandle : INotificationHandler<ErrorEvent>
                 Date = notification.TimeEvent,
                 EventPublishName = notification.EventPublishName,
                 TypeEvent = TypeEvent.Error,
-                Message = notification.Message,
+                Message = notification.ErrorMessage
             }, cancellationToken).ConfigureAwait(false);
             await _context.SaveChangesAsync(cancellationToken);
         }
