@@ -14,7 +14,7 @@ namespace DataBaseTests
         public async void Test1()
         {
             ServiceCollection services = new ServiceCollection();
-            services.AddAlfaLogger("C:\\Users\\Гоша и Аня\\AlfaLogger\\Solution\\DataBaseTests\\TestDataBase\\appDataBase.db");
+            services.AddAlfaLogger("appDataBase.db");
             IServiceProvider serviceProvider = services.BuildServiceProvider();
 
             var init = serviceProvider.GetRequiredService<LoggerInitialization>();

@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ContextEf\ContextEf.csproj" />
+    <ProjectReference Include="..\Repository\Repository.csproj" />
   </ItemGroup>
 
 </Project>

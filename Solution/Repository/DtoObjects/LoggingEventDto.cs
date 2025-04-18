@@ -6,5 +6,5 @@ using System.Threading.Tasks;
 
 namespace Repository.DtoObjects
 {
-    public record LoggingEvent();
+    public record LoggingEventDto(string Message);
 }

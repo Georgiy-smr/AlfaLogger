@@ -7,11 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Repositoryeis\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="GenericServices.StatusGeneric" Version="1.2.0" />
+    <PackageReference Include="MediatR" Version="12.5.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.4" />
   </ItemGroup>
 
   <ItemGroup>
