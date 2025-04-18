@@ -30,8 +30,19 @@ internal class GetEventsCommandHandler :
 
             var query = service.Logs.AsQueryable();
 
+            if (request.Filters is {} filters) 
+                foreach (var filter in filters) 
+                    query = query.Where(filter);
+            
+            if (request.Includes is { } includes)
+                foreach (var include in includes)
+                    query = query.Include(include);
+
             if (!await query.AnyAsync(cancellationToken: cancellationToken))
+            {
                 status.AddError("items is empty");
+                return status;
+            }
 
             var list = await query
                 .Select(x =>

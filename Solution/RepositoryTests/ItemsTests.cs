@@ -1,6 +1,8 @@
+using System.Linq.Expressions;
 using AlfaLoggerLib.Extension;
 using AlfaLoggerLib.Logging;
 using AlfaLoggerLib.Logging.Events;
+using Data.Entities;
 using Microsoft.Extensions.DependencyInjection;
 using Repository;
 
@@ -33,10 +35,13 @@ namespace RepositoryTests
             var repository = serviceProvider.GetRequiredService<LogsRepository>();
 
 
-            var result = await repository.Events();
+            var result = await repository.Events(
+                new List<Expression<Func<Log, bool>>>()
+                {
+                    x => x.Message == testMessage,
+                });
 
-            Assert.True(result.Result.Any());
-
+            Assert.NotNull(result.Result.Single());
         }
     }
 }
