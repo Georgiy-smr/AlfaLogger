@@ -30,6 +30,7 @@ internal class GetEventsCommandHandler :
                 scope.ServiceProvider
                     .GetRequiredService<AppDbContext>().Logs
                     .AsQueryable()
+                    .AsNoTracking()
                     .ApplyFilters(request.Filters)
                     .ApplyInclude(request.Includes)
                     .OrderByDesc()
