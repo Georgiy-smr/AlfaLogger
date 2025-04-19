@@ -36,4 +36,8 @@
     <ProjectReference Include="..\Repository\AlfaLogger.Repository.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Logging\Implements\" />
+  </ItemGroup>
+
 </Project>

@@ -2,6 +2,7 @@
 using AlfaLoggerLib.Logging;
 using ContextEf;
 using Microsoft.Extensions.DependencyInjection;
+using Implements = AlfaLoggerLib.Logging.Implements;
 
 namespace AlfaLoggerLib.Extension
 {
@@ -13,8 +14,8 @@ namespace AlfaLoggerLib.Extension
                     .AddLogging()
                     .RegistrarDataBase(path)
                     .AddSingleton<LoggerInitialization>()
+                    .AddScoped<IAlfaLogger, Implements.AlfaLogger>()
                     .AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()))
-                    .AddScoped<IAlfaLogger, AlfaLogger>()
                ;
         }
 

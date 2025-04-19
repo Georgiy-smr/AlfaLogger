@@ -19,12 +19,16 @@ namespace Repository
             _mediator = mediator;
         }
         public Task<IStatusGeneric<IEnumerable<LoggingEventDto>>> Events(
+            int size,
+            int zeroStart = 0,
             List<Expression<Func<Log,bool>>>? filters = null,
             List<Expression<Func<Log, object>>>? includes = null,
             CancellationToken token = default)
         {
             return _mediator.Send(new GetEventsCommand()
             {
+                Size = size,
+                ZeroStart = zeroStart,
                 Filters = filters,
                 Includes = includes
             }, token);

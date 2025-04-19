@@ -39,6 +39,9 @@ namespace RepositoryTests
             //Act
 
             var result = await sut.Events(
+                size:1,
+                zeroStart:0,
+                filters:
                 new List<Expression<Func<Log, bool>>>()
                 {
                     x => x.Message == testMessage,
@@ -77,6 +80,9 @@ namespace RepositoryTests
             //Act
 
             var result = await sut.Events(
+                size: 1,
+                zeroStart: 0,
+                filters:
                 new List<Expression<Func<Log, bool>>>()
                 {
                     x => x.Message == testMessage,
@@ -127,6 +133,9 @@ namespace RepositoryTests
             }
 
             var result = await sut.Events(
+                size: 1,
+                zeroStart: 0,
+                filters:
                 new List<Expression<Func<Log, bool>>>()
                 {
                     x => x.Message.Contains(testMessage),
@@ -135,14 +144,7 @@ namespace RepositoryTests
 
 
             //Assert
-
+            Assert.True(result.Result.Any(x => x.Message.Contains(testMessage)));
         }
-
-
-
-
-
-
-
     }
 }

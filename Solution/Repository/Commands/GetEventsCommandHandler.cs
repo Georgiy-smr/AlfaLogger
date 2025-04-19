@@ -1,4 +1,5 @@
-﻿using ContextEf;
+﻿using AlfaLogger.Repository.Extensions;
+using ContextEf;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -25,16 +26,14 @@ internal class GetEventsCommandHandler :
         await using var scope = _provider.CreateAsyncScope();
         try
         {
-            var query = 
-                scope.ServiceProvider.GetRequiredService<AppDbContext>().Logs.AsQueryable();
-
-            if (request.Filters is {} filters) 
-                foreach (var filter in filters) 
-                    query = query.Where(filter);
-            
-            if (request.Includes is { } includes)
-                foreach (var include in includes)
-                    query = query.Include(include);
+            var query =
+                scope.ServiceProvider
+                    .GetRequiredService<AppDbContext>().Logs
+                    .AsQueryable()
+                    .ApplyFilters(request.Filters)
+                    .ApplyInclude(request.Includes)
+                    .OrderByDesc()
+                    .Page(request.ZeroStart, request.Size);
 
             if (!await query.AnyAsync(cancellationToken: cancellationToken))
             {
