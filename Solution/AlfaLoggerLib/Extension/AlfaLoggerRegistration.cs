@@ -8,7 +8,9 @@ namespace AlfaLoggerLib.Extension
 {
     public static class AlfaLoggerRegistration
     {
-        public static IServiceCollection AddAlfaLogger(this IServiceCollection collection, string path)
+        public static IServiceCollection AddAlfaLogger(
+            this IServiceCollection collection,
+            string? path = null)
         {
             return collection
                     .AddLogging()

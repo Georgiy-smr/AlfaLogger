@@ -12,12 +12,14 @@ namespace ContextEf
     {
         public static IServiceCollection RegistrarDataBase(
             this IServiceCollection collection,
-            string pathFileDataBase)
+            string? pathFileDataBase = null)
         {
-            ArgumentException.ThrowIfNullOrWhiteSpace(pathFileDataBase, nameof(pathFileDataBase));
             return collection
+                .AddSingleton<DataBaseSettings>()
                 .AddDbContextPool<AppDbContext>((servicesProvider, options) =>
                 {
+                    if(string.IsNullOrWhiteSpace(pathFileDataBase))
+                        pathFileDataBase = servicesProvider.GetRequiredService<DataBaseSettings>().ToString();
                     options.UseSqlite($"Data Source={pathFileDataBase}");
                 })
                 .AddScoped<InitializationDataBase>();
