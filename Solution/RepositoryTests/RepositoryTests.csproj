@@ -20,6 +20,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\AlfaLoggerLib\AlfaLoggerLib.csproj" />
+    <ProjectReference Include="..\Repository\AlfaLogger.Repository.csproj" />
   </ItemGroup>
 
   <ItemGroup>
