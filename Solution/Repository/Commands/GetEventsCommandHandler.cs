@@ -1,9 +1,11 @@
 ﻿using AlfaLogger.Repository.Extensions;
 using ContextEf;
+using Data.Entities;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Repository.DtoObjects;
+using Repository.Services;
 using StatusGeneric;
 
 namespace Repository.Commands;
@@ -28,13 +30,7 @@ internal class GetEventsCommandHandler :
         {
             var query =
                 scope.ServiceProvider
-                    .GetRequiredService<AppDbContext>().Logs
-                    .AsQueryable()
-                    .AsNoTracking()
-                    .ApplyFilters(request.Filters)
-                    .ApplyInclude(request.Includes)
-                    .OrderByDesc()
-                    .Page(request.ZeroStart, request.Size);
+                    .GetRequiredService<IGetItems<Log>>().Get(request);
 
             if (!await query.AnyAsync(cancellationToken: cancellationToken))
             {

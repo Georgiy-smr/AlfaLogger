@@ -1,4 +1,5 @@
 ﻿using System.Linq.Expressions;
+using Data;
 using Data.Entities;
 using Data.Entities.Base;
 using MediatR;
@@ -8,7 +9,7 @@ using StatusGeneric;
 namespace Repository.Commands;
 
 
-internal abstract record RepositoryCommand<T>() where T : Entity, new()
+public abstract record RepositoryCommand<T>() where T : IEntity, new()
 {
     public required IEnumerable<Expression<Func<T, bool>>>? Filters { get; init; } 
     public required IEnumerable<Expression<Func<T, object>>>? Includes { get; init; }
@@ -17,6 +18,6 @@ internal abstract record RepositoryCommand<T>() where T : Entity, new()
 
 }
 
-internal record GetEventsCommand() : 
+public record GetEventsCommand() : 
     RepositoryCommand<Log>,
     IRequest<IStatusGeneric<IEnumerable<LoggingEventDto>>>;
