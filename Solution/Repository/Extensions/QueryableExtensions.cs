@@ -11,9 +11,12 @@ using MediatR;
 
 namespace AlfaLogger.Repository.Extensions
 {
+
+
     internal static class QueryableExtensions
     {
-        internal static IQueryable<T> ApplyFilters<T>(
+    
+       internal static IQueryable<T> ApplyFilters<T>(
             this IQueryable<T> query,
             IEnumerable<Expression<Func<T, bool>>>? filters) where T : Entity, new()
         {
